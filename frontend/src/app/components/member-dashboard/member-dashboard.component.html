@@ -1,0 +1,383 @@
+<div class="flex">
+  <aside id="sidebar" class="w-72 bg-white h-screen fixed left-0 top-0 shadow-xl border-r border-gray-100">
+    <div class="p-6 border-b border-gray-100">
+      <div class="flex items-center space-x-3 mb-6">
+        <div class="w-10 h-10 bg-gradient-to-br from-orange-primary to-orange-light rounded-lg flex items-center justify-center">
+          <span class="text-white font-montserrat font-bold text-lg">27</span>
+        </div>
+        <span class="text-2xl font-montserrat font-bold text-gray-dark">27 degrés</span>
+      </div>
+      
+      <div class="flex items-center space-x-3 bg-gradient-to-r from-orange-50 to-yellow-50 p-4 rounded-xl">
+        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" class="w-14 h-14 rounded-full border-2 border-orange-primary" />
+        <div>
+          <div class="font-semibold text-gray-dark">Thomas Martin</div>
+          <div class="text-sm text-gray-600">Membre actif</div>
+        </div>
+      </div>
+    </div>
+    
+    <nav class="p-4">
+      <a routerLink="/dashboard" class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-orange-primary text-white mb-2">
+        <i class="fa-solid fa-chart-line w-5"></i>
+        <span class="font-semibold">Tableau de bord</span>
+      </a>
+      <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors mb-2">
+        <i class="fa-solid fa-calendar-days w-5"></i>
+        <span class="font-semibold">Événements</span>
+      </a>
+      <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors mb-2">
+        <i class="fa-solid fa-users w-5"></i>
+        <span class="font-semibold">Membres</span>
+      </a>
+      <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors mb-2">
+        <i class="fa-solid fa-user w-5"></i>
+        <span class="font-semibold">Mon profil</span>
+      </a>
+      <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+        <i class="fa-solid fa-gear w-5"></i>
+        <span class="font-semibold">Paramètres</span>
+      </a>
+    </nav>
+    
+    <div class="absolute bottom-8 left-4 right-4">
+      <div class="bg-green-light bg-opacity-10 border-2 border-green-light rounded-xl p-4">
+        <div class="flex items-center justify-between mb-2">
+          <span class="font-semibold text-gray-dark">Cotisation 2024</span>
+          <i class="fa-solid fa-circle-check text-green-light text-xl"></i>
+        </div>
+        <div class="text-sm text-gray-600">Statut : <span class="text-green-light font-semibold">À jour</span></div>
+      </div>
+    </div>
+  </aside>
+  
+  <main class="ml-72 flex-1">
+    <header id="header" class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-10">
+      <div class="px-8 py-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-2xl font-montserrat font-bold text-gray-dark">Tableau de bord</h1>
+            <p class="text-gray-600">Bienvenue Thomas, voici votre activité</p>
+          </div>
+          
+          <div class="flex items-center space-x-4">
+            <button class="relative p-3 rounded-lg hover:bg-gray-50 transition-colors">
+              <i class="fa-solid fa-bell text-gray-600 text-xl"></i>
+              <span class="absolute top-2 right-2 w-2 h-2 bg-orange-primary rounded-full"></span>
+            </button>
+            <button class="bg-orange-primary text-white px-5 py-2 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+              <i class="fa-solid fa-plus mr-2"></i>
+              Créer un événement
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <div class="p-8">
+      <section id="stats-cards" class="grid grid-cols-4 gap-6 mb-8">
+        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-orange-primary">
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-calendar-check text-orange-primary text-xl"></i>
+            </div>
+            <span class="text-3xl font-montserrat font-bold text-gray-dark">12</span>
+          </div>
+          <div class="text-gray-600 font-semibold">Événements créés</div>
+          <div class="text-sm text-green-light mt-1">
+            <i class="fa-solid fa-arrow-up mr-1"></i>+3 ce mois
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-light">
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-user-check text-green-light text-xl"></i>
+            </div>
+            <span class="text-3xl font-montserrat font-bold text-gray-dark">28</span>
+          </div>
+          <div class="text-gray-600 font-semibold">Participations</div>
+          <div class="text-sm text-green-light mt-1">
+            <i class="fa-solid fa-arrow-up mr-1"></i>+5 ce mois
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-brand">
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-12 h-12 bg-yellow-50 rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-chart-line text-yellow-brand text-xl"></i>
+            </div>
+            <span class="text-3xl font-montserrat font-bold text-gray-dark">87%</span>
+          </div>
+          <div class="text-gray-600 font-semibold">Taux de présence</div>
+          <div class="text-sm text-green-light mt-1">
+            <i class="fa-solid fa-arrow-up mr-1"></i>+2% ce mois
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-orange-light">
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-star text-orange-light text-xl"></i>
+            </div>
+            <span class="text-3xl font-montserrat font-bold text-gray-dark">4.8</span>
+          </div>
+          <div class="text-gray-600 font-semibold">Note moyenne</div>
+          <div class="text-sm text-gray-500 mt-1">Sur 15 évaluations</div>
+        </div>
+      </section>
+      
+      <div class="grid grid-cols-3 gap-8 mb-8">
+        <div class="col-span-2">
+          <section id="upcoming-events-dashboard" class="bg-white rounded-xl shadow-lg p-6">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-xl font-montserrat font-bold text-gray-dark">Mes prochains événements</h2>
+              <a href="#" class="text-orange-primary font-semibold hover:underline">Voir tout</a>
+            </div>
+            
+            <div class="space-y-4">
+              <div class="flex items-center space-x-4 p-4 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl border-l-4 border-orange-primary">
+                <div class="w-16 h-16 bg-white rounded-lg flex flex-col items-center justify-center shadow-md">
+                  <div class="text-2xl font-montserrat font-bold text-orange-primary">15</div>
+                  <div class="text-xs text-gray-600">DÉC</div>
+                </div>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-dark mb-1">Match de Football</h3>
+                  <div class="flex items-center text-sm text-gray-600">
+                    <i class="fa-solid fa-location-dot text-orange-primary mr-2"></i>
+                    <span>Terrain de la Basse-Ville</span>
+                    <span class="mx-2">•</span>
+                    <i class="fa-solid fa-clock text-orange-primary mr-2"></i>
+                    <span>14:00</span>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <div class="flex -space-x-2">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" class="w-8 h-8 rounded-full border-2 border-white" />
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" class="w-8 h-8 rounded-full border-2 border-white" />
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-8.jpg" class="w-8 h-8 rounded-full border-2 border-white" />
+                  </div>
+                  <span class="text-sm text-gray-600 font-semibold">+5</span>
+                </div>
+              </div>
+              
+              <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl border-l-4 border-green-light">
+                <div class="w-16 h-16 bg-white rounded-lg flex flex-col items-center justify-center shadow-md">
+                  <div class="text-2xl font-montserrat font-bold text-green-light">22</div>
+                  <div class="text-xs text-gray-600">DÉC</div>
+                </div>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-dark mb-1">Soirée Restaurant</h3>
+                  <div class="flex items-center text-sm text-gray-600">
+                    <i class="fa-solid fa-location-dot text-green-light mr-2"></i>
+                    <span>Le Petit Bistrot</span>
+                    <span class="mx-2">•</span>
+                    <i class="fa-solid fa-clock text-green-light mr-2"></i>
+                    <span>19:30</span>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <div class="flex -space-x-2">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" class="w-8 h-8 rounded-full border-2 border-white" />
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg" class="w-8 h-8 rounded-full border-2 border-white" />
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-9.jpg" class="w-8 h-8 rounded-full border-2 border-white" />
+                  </div>
+                  <span class="text-sm text-gray-600 font-semibold">+3</span>
+                </div>
+              </div>
+              
+              <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl border-l-4 border-yellow-brand">
+                <div class="w-16 h-16 bg-white rounded-lg flex flex-col items-center justify-center shadow-md">
+                  <div class="text-2xl font-montserrat font-bold text-yellow-brand">05</div>
+                  <div class="text-xs text-gray-600">JAN</div>
+                </div>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-dark mb-1">Exposition d'Art</h3>
+                  <div class="flex items-center text-sm text-gray-600">
+                    <i class="fa-solid fa-location-dot text-yellow-brand mr-2"></i>
+                    <span>Musée des Beaux-Arts</span>
+                    <span class="mx-2">•</span>
+                    <i class="fa-solid fa-clock text-yellow-brand mr-2"></i>
+                    <span>15:00</span>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <div class="flex -space-x-2">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg" class="w-8 h-8 rounded-full border-2 border-white" />
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-7.jpg" class="w-8 h-8 rounded-full border-2 border-white" />
+                  </div>
+                  <span class="text-sm text-gray-600 font-semibold">+2</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        
+        <div>
+          <section id="notifications" class="bg-white rounded-xl shadow-lg p-6">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-xl font-montserrat font-bold text-gray-dark">Notifications</h2>
+              <span class="w-6 h-6 bg-orange-primary text-white text-xs font-bold rounded-full flex items-center justify-center">3</span>
+            </div>
+            
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3 p-3 bg-orange-50 rounded-lg">
+                <div class="w-10 h-10 bg-orange-primary rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fa-solid fa-user-plus text-white"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-gray-dark font-semibold">Sophie a rejoint l'événement</p>
+                  <p class="text-xs text-gray-600">Match de Football</p>
+                  <p class="text-xs text-gray-400 mt-1">Il y a 2h</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-3 p-3 bg-green-50 rounded-lg">
+                <div class="w-10 h-10 bg-green-light rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fa-solid fa-calendar-check text-white"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-gray-dark font-semibold">Nouvel événement créé</p>
+                  <p class="text-xs text-gray-600">Randonnée en montagne</p>
+                  <p class="text-xs text-gray-400 mt-1">Il y a 5h</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-3 p-3 bg-yellow-50 rounded-lg">
+                <div class="w-10 h-10 bg-yellow-brand rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fa-solid fa-comment text-white"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-gray-dark font-semibold">Nouveau commentaire</p>
+                  <p class="text-xs text-gray-600">Marc: "Qui amène le ballon?"</p>
+                  <p class="text-xs text-gray-400 mt-1">Il y a 1j</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fa-solid fa-bell text-white"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-gray-dark font-semibold">Rappel événement</p>
+                  <p class="text-xs text-gray-600">Soirée Restaurant demain</p>
+                  <p class="text-xs text-gray-400 mt-1">Il y a 1j</p>
+                </div>
+              </div>
+            </div>
+            
+            <button class="w-full mt-4 text-orange-primary font-semibold text-sm hover:underline">
+              Voir toutes les notifications
+            </button>
+          </section>
+        </div>
+      </div>
+      
+      <section id="activity-feed" class="bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-xl font-montserrat font-bold text-gray-dark mb-6">Fil d'actualités</h2>
+        
+        <div class="space-y-6">
+          <div class="flex items-start space-x-4">
+            <div class="relative">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" class="w-12 h-12 rounded-full border-2 border-orange-primary" />
+              <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-green-light rounded-full border-2 border-white flex items-center justify-center">
+                <i class="fa-solid fa-check text-white text-xs"></i>
+              </div>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center space-x-2 mb-2">
+                <span class="font-semibold text-gray-dark">Julie Dubois</span>
+                <span class="text-gray-500 text-sm">a participé à</span>
+                <span class="font-semibold text-orange-primary">Match de Football</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-2">Super match aujourd'hui! Merci à tous pour cette belle après-midi 🙌⚽</p>
+              <div class="flex items-center space-x-4 text-xs text-gray-500">
+                <span>Il y a 3h</span>
+                <button class="hover:text-orange-primary transition-colors">
+                  <i class="fa-regular fa-heart mr-1"></i>12
+                </button>
+                <button class="hover:text-orange-primary transition-colors">
+                  <i class="fa-regular fa-comment mr-1"></i>5
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="border-t border-gray-100 pt-6"></div>
+          
+          <div class="flex items-start space-x-4">
+            <div class="relative">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-8.jpg" class="w-12 h-12 rounded-full border-2 border-green-light" />
+              <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-yellow-brand rounded-full border-2 border-white flex items-center justify-center">
+                <i class="fa-solid fa-calendar text-white text-xs"></i>
+              </div>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center space-x-2 mb-2">
+                <span class="font-semibold text-gray-dark">Marc Lefebvre</span>
+                <span class="text-gray-500 text-sm">a créé l'événement</span>
+                <span class="font-semibold text-green-light">Randonnée en montagne</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-2">Qui est partant pour une belle randonnée ce dimanche? 🏔️</p>
+              <div class="flex items-center space-x-4 text-xs text-gray-500">
+                <span>Il y a 6h</span>
+                <button class="hover:text-orange-primary transition-colors">
+                  <i class="fa-regular fa-heart mr-1"></i>8
+                </button>
+                <button class="hover:text-orange-primary transition-colors">
+                  <i class="fa-regular fa-comment mr-1"></i>12
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="border-t border-gray-100 pt-6"></div>
+          
+          <div class="flex items-start space-x-4">
+            <div class="relative">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" class="w-12 h-12 rounded-full border-2 border-yellow-brand" />
+              <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-orange-primary rounded-full border-2 border-white flex items-center justify-center">
+                <i class="fa-solid fa-star text-white text-xs"></i>
+              </div>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center space-x-2 mb-2">
+                <span class="font-semibold text-gray-dark">Emma Rousseau</span>
+                <span class="text-gray-500 text-sm">a partagé des photos de</span>
+                <span class="font-semibold text-yellow-brand">Soirée Bowling</span>
+              </div>
+              <div class="grid grid-cols-4 gap-2 mb-2">
+                <div class="h-20 bg-gray-200 rounded-lg overflow-hidden">
+                  <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" class="w-full h-full object-cover" />
+                </div>
+                <div class="h-20 bg-gray-200 rounded-lg overflow-hidden">
+                  <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg" class="w-full h-full object-cover" />
+                </div>
+                <div class="h-20 bg-gray-200 rounded-lg overflow-hidden">
+                  <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg" class="w-full h-full object-cover" />
+                </div>
+                <div class="h-20 bg-gray-900 bg-opacity-50 rounded-lg flex items-center justify-center text-white font-bold">
+                  +8
+                </div>
+              </div>
+              <div class="flex items-center space-x-4 text-xs text-gray-500">
+                <span>Il y a 1j</span>
+                <button class="hover:text-orange-primary transition-colors">
+                  <i class="fa-regular fa-heart mr-1"></i>24
+                </button>
+                <button class="hover:text-orange-primary transition-colors">
+                  <i class="fa-regular fa-comment mr-1"></i>18
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <button class="w-full mt-6 py-3 border-2 border-gray-200 rounded-lg text-gray-600 font-semibold hover:border-orange-primary hover:text-orange-primary transition-all">
+          Charger plus d'activités
+        </button>
+      </section>
+    </div>
+  </main>
+</div>
+

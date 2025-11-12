@@ -1,0 +1,18 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Installer les dépendances
+COPY package*.json ./
+RUN npm install --legacy-peer-deps
+
+# Copier les fichiers de configuration
+COPY angular.json tsconfig*.json tailwind.config.js postcss.config.js ./
+
+# Copier le code source (sera monté en volume en dev)
+COPY src ./src
+
+EXPOSE 4200
+
+CMD ["npm", "start"]
+

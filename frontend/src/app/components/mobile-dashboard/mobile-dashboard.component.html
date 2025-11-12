@@ -1,0 +1,311 @@
+<header id="mobile-header" class="bg-white shadow-sm border-b border-gray-100 lg:hidden">
+  <div class="px-4 py-3">
+    <div class="flex items-center justify-between">
+      <button (click)="toggleSidebar()" class="text-gray-600">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 bg-gradient-to-br from-orange-primary to-orange-light rounded-lg flex items-center justify-center">
+          <span class="text-white font-montserrat font-bold text-sm">27</span>
+        </div>
+        <span class="text-lg font-montserrat font-bold text-gray-dark">27 degrés</span>
+      </div>
+      <div class="relative">
+        <button class="text-gray-600 relative">
+          <i class="fa-solid fa-bell text-xl"></i>
+          <div class="absolute -top-1 -right-1 w-5 h-5 bg-orange-primary rounded-full flex items-center justify-center">
+            <span class="text-white text-xs font-bold">3</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="flex min-h-screen">
+  <aside id="sidebar" [class.hidden]="!sidebarOpen" [class.fixed]="sidebarOpen" [class.inset-0]="sidebarOpen" [class.z-50]="sidebarOpen" class="lg:block w-64 bg-white shadow-lg border-r border-gray-100">
+    <div class="p-6 border-b border-gray-100">
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-orange-primary to-orange-light rounded-lg flex items-center justify-center">
+          <span class="text-white font-montserrat font-bold text-lg">27</span>
+        </div>
+        <span class="text-xl font-montserrat font-bold text-gray-dark">27 degrés</span>
+      </div>
+      
+      <div class="flex items-center space-x-3">
+        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" class="w-12 h-12 rounded-full border-2 border-orange-primary" />
+        <div>
+          <div class="font-semibold text-gray-dark">Marc Dubois</div>
+          <div class="text-sm text-gray-500">Membre actif</div>
+        </div>
+      </div>
+      
+      <div class="mt-4 p-3 bg-green-light bg-opacity-10 rounded-lg border border-green-light border-opacity-30">
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-check-circle text-green-light"></i>
+          <span class="text-sm font-semibold text-green-light">Cotisation à jour</span>
+        </div>
+      </div>
+    </div>
+    
+    <nav class="p-6">
+      <ul class="space-y-2">
+        <li>
+          <a routerLink="/mobile" class="flex items-center space-x-3 px-4 py-3 bg-orange-primary bg-opacity-10 text-orange-primary rounded-lg font-semibold">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Tableau de bord</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Événements</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">
+            <i class="fa-solid fa-users"></i>
+            <span>Membres</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">
+            <i class="fa-solid fa-user"></i>
+            <span>Mon profil</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">
+            <i class="fa-solid fa-gear"></i>
+            <span>Paramètres</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main id="main-content" class="flex-1 p-4 lg:p-8 pb-20 lg:pb-8">
+    <div id="welcome-section" class="mb-8">
+      <h1 class="text-3xl font-montserrat font-bold text-gray-dark mb-2">Bonjour Marc ! 👋</h1>
+      <p class="text-gray-600">Voici un aperçu de vos activités récentes</p>
+    </div>
+
+    <div id="stats-section" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="bg-white p-6 rounded-xl shadow-lg">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 bg-orange-primary bg-opacity-10 rounded-lg flex items-center justify-center">
+            <i class="fa-solid fa-calendar-plus text-orange-primary text-xl"></i>
+          </div>
+          <span class="text-2xl font-montserrat font-bold text-gray-dark">12</span>
+        </div>
+        <h3 class="font-semibold text-gray-dark mb-1">Événements créés</h3>
+        <p class="text-sm text-gray-500">+2 ce mois-ci</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 bg-green-light bg-opacity-10 rounded-lg flex items-center justify-center">
+            <i class="fa-solid fa-user-check text-green-light text-xl"></i>
+          </div>
+          <span class="text-2xl font-montserrat font-bold text-gray-dark">28</span>
+        </div>
+        <h3 class="font-semibold text-gray-dark mb-1">Participations</h3>
+        <p class="text-sm text-gray-500">+5 ce mois-ci</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 bg-yellow-brand bg-opacity-10 rounded-lg flex items-center justify-center">
+            <i class="fa-solid fa-chart-line text-yellow-brand text-xl"></i>
+          </div>
+          <span class="text-2xl font-montserrat font-bold text-gray-dark">85%</span>
+        </div>
+        <h3 class="font-semibold text-gray-dark mb-1">Taux présence</h3>
+        <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+          <div class="bg-yellow-brand h-2 rounded-full" style="width: 85%"></div>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 bg-green-lime bg-opacity-10 rounded-lg flex items-center justify-center">
+            <i class="fa-solid fa-star text-green-lime text-xl"></i>
+          </div>
+          <span class="text-2xl font-montserrat font-bold text-gray-dark">4.8</span>
+        </div>
+        <h3 class="font-semibold text-gray-dark mb-1">Note moyenne</h3>
+        <div class="flex text-yellow-brand text-sm">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8">
+      <div id="upcoming-events-section" class="lg:col-span-2">
+        <div class="bg-white rounded-xl shadow-lg p-6">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-montserrat font-bold text-gray-dark">Mes prochains événements</h2>
+            <button class="text-orange-primary font-semibold hover:underline">Voir tout</button>
+          </div>
+          
+          <div class="space-y-4 max-h-80 overflow-y-auto">
+            <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+              <div class="w-16 h-16 bg-orange-primary bg-opacity-10 rounded-lg flex flex-col items-center justify-center">
+                <span class="text-orange-primary font-bold text-lg">15</span>
+                <span class="text-orange-primary text-xs">DÉC</span>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-semibold text-gray-dark mb-1">Match de Football</h3>
+                <p class="text-sm text-gray-500 mb-2">Terrain de la Basse-Ville • 14h00</p>
+                <div class="flex items-center space-x-2">
+                  <div class="flex -space-x-1">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" class="w-6 h-6 rounded-full border border-white" />
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" class="w-6 h-6 rounded-full border border-white" />
+                    <div class="w-6 h-6 rounded-full bg-orange-primary border border-white flex items-center justify-center">
+                      <span class="text-white text-xs">+6</span>
+                    </div>
+                  </div>
+                  <span class="text-green-light text-sm font-medium">8 participants</span>
+                </div>
+              </div>
+              <button class="px-4 py-2 bg-green-light text-white rounded-lg text-sm font-semibold hover:bg-green-600 transition-colors">
+                Confirmé
+              </button>
+            </div>
+
+            <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+              <div class="w-16 h-16 bg-orange-primary bg-opacity-10 rounded-lg flex flex-col items-center justify-center">
+                <span class="text-orange-primary font-bold text-lg">22</span>
+                <span class="text-orange-primary text-xs">DÉC</span>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-semibold text-gray-dark mb-1">Soirée Restaurant</h3>
+                <p class="text-sm text-gray-500 mb-2">Le Petit Bistrot • 19h30</p>
+                <div class="flex items-center space-x-2">
+                  <div class="flex -space-x-1">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" class="w-6 h-6 rounded-full border border-white" />
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg" class="w-6 h-6 rounded-full border border-white" />
+                    <div class="w-6 h-6 rounded-full bg-orange-primary border border-white flex items-center justify-center">
+                      <span class="text-white text-xs">+4</span>
+                    </div>
+                  </div>
+                  <span class="text-green-light text-sm font-medium">6 participants</span>
+                </div>
+              </div>
+              <button class="px-4 py-2 bg-orange-primary text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors">
+                Participer
+              </button>
+            </div>
+
+            <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+              <div class="w-16 h-16 bg-orange-primary bg-opacity-10 rounded-lg flex flex-col items-center justify-center">
+                <span class="text-orange-primary font-bold text-lg">05</span>
+                <span class="text-orange-primary text-xs">JAN</span>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-semibold text-gray-dark mb-1">Exposition d'Art</h3>
+                <p class="text-sm text-gray-500 mb-2">Musée des Beaux-Arts • 15h00</p>
+                <div class="flex items-center space-x-2">
+                  <div class="flex -space-x-1">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg" class="w-6 h-6 rounded-full border border-white" />
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-7.jpg" class="w-6 h-6 rounded-full border border-white" />
+                    <div class="w-6 h-6 rounded-full bg-orange-primary border border-white flex items-center justify-center">
+                      <span class="text-white text-xs">+3</span>
+                    </div>
+                  </div>
+                  <span class="text-green-light text-sm font-medium">5 participants</span>
+                </div>
+              </div>
+              <button class="px-4 py-2 border-2 border-orange-primary text-orange-primary rounded-lg text-sm font-semibold hover:bg-orange-primary hover:text-white transition-colors">
+                En attente
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="activity-section">
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+          <h2 class="text-xl font-montserrat font-bold text-gray-dark mb-6">Notifications récentes</h2>
+          
+          <div class="space-y-4 max-h-64 overflow-y-auto">
+            <div class="flex items-start space-x-3 p-3 bg-orange-primary bg-opacity-5 rounded-lg">
+              <div class="w-8 h-8 bg-orange-primary rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-calendar-plus text-white text-sm"></i>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm text-gray-700">Nouvel événement créé par <span class="font-semibold">Sophie</span></p>
+                <p class="text-xs text-gray-500">Il y a 2 heures</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 p-3 bg-green-light bg-opacity-5 rounded-lg">
+              <div class="w-8 h-8 bg-green-light rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-user-plus text-white text-sm"></i>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm text-gray-700"><span class="font-semibold">Thomas</span> a rejoint votre événement</p>
+                <p class="text-xs text-gray-500">Il y a 5 heures</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 p-3 bg-yellow-brand bg-opacity-5 rounded-lg">
+              <div class="w-8 h-8 bg-yellow-brand rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-star text-white text-sm"></i>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm text-gray-700">Votre événement a reçu une note de 5/5</p>
+                <p class="text-xs text-gray-500">Hier</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-6">
+          <h3 class="font-semibold text-gray-dark mb-4">Actions rapides</h3>
+          <div class="space-y-3">
+            <button class="w-full flex items-center space-x-3 p-3 bg-orange-primary text-white rounded-lg hover:bg-orange-600 transition-colors">
+              <i class="fa-solid fa-plus"></i>
+              <span>Créer un événement</span>
+            </button>
+            <button class="w-full flex items-center space-x-3 p-3 border border-orange-primary text-orange-primary rounded-lg hover:bg-orange-primary hover:text-white transition-colors">
+              <i class="fa-solid fa-search"></i>
+              <span>Parcourir les événements</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<nav id="mobile-bottom-nav" class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2">
+  <div class="flex items-center justify-around">
+    <a routerLink="/mobile" class="flex flex-col items-center space-y-1 p-2 text-orange-primary">
+      <i class="fa-solid fa-house text-xl"></i>
+      <span class="text-xs font-medium">Accueil</span>
+    </a>
+    <a href="#" class="flex flex-col items-center space-y-1 p-2 text-gray-400">
+      <i class="fa-solid fa-calendar-days text-xl"></i>
+      <span class="text-xs font-medium">Événements</span>
+    </a>
+    <button class="flex flex-col items-center space-y-1 p-2 -mt-6">
+      <div class="w-14 h-14 bg-orange-primary rounded-full flex items-center justify-center shadow-lg">
+        <i class="fa-solid fa-plus text-white text-xl"></i>
+      </div>
+    </button>
+    <a href="#" class="flex flex-col items-center space-y-1 p-2 text-gray-400">
+      <i class="fa-solid fa-users text-xl"></i>
+      <span class="text-xs font-medium">Membres</span>
+    </a>
+    <a href="#" class="flex flex-col items-center space-y-1 p-2 text-gray-400">
+      <i class="fa-solid fa-user text-xl"></i>
+      <span class="text-xs font-medium">Profil</span>
+    </a>
+  </div>
+</nav>
+

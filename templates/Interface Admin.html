@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.plot.ly/plotly-3.1.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>::-webkit-scrollbar { display: none;}</style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'orange-primary': '#E84C24',
+                        'orange-light': '#F5A623',
+                        'yellow-brand': '#FDB913',
+                        'green-light': '#7FB03E',
+                        'green-lime': '#B8D430',
+                        'gray-dark': '#2C3E50'
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'opensans': ['Open Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-opensans">
+    <!-- Header -->
+    <header id="header" class="bg-white shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-orange-primary to-orange-light rounded-lg flex items-center justify-center">
+                        <span class="text-white font-montserrat font-bold text-lg">27</span>
+                    </div>
+                    <span class="text-2xl font-montserrat font-bold text-gray-dark">27 degrés</span>
+                    <span class="bg-orange-primary text-white px-3 py-1 rounded-full text-sm font-semibold ml-4">ADMIN</span>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button class="p-2 text-gray-600 hover:text-orange-primary transition-colors relative">
+                            <i class="fa-solid fa-bell text-xl"></i>
+                            <span class="absolute -top-1 -right-1 w-5 h-5 bg-orange-primary text-white rounded-full text-xs flex items-center justify-center">3</span>
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" class="w-10 h-10 rounded-full border-2 border-orange-primary" />
+                        <div>
+                            <div class="font-semibold text-gray-dark">Admin</div>
+                            <div class="text-sm text-gray-500">Administrateur</div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex h-screen pt-[73px]">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-64 bg-white shadow-lg border-r border-gray-200 overflow-y-auto">
+            <div class="p-6">
+                <div class="flex items-center space-x-3 mb-8">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" class="w-12 h-12 rounded-full border-2 border-orange-primary" />
+                    <div>
+                        <div class="font-semibold text-gray-dark">Thomas Admin</div>
+                        <div class="text-sm text-green-light">Cotisation OK</div>
+                    </div>
+                </div>
+                
+                <nav class="space-y-2">
+                    <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-orange-primary text-white">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span class="font-semibold">Tableau de bord</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-orange-primary transition-colors">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>Événements</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-orange-primary transition-colors">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Membres</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-orange-primary transition-colors">
+                        <i class="fa-solid fa-euro-sign"></i>
+                        <span>Cotisations</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-orange-primary transition-colors">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>Statistiques</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-orange-primary transition-colors">
+                        <i class="fa-solid fa-cog"></i>
+                        <span>Paramètres</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="flex-1 overflow-y-auto">
+            <div class="p-8">
+                <!-- Page Header -->
+                <div id="page-header" class="mb-8">
+                    <h1 class="text-3xl font-montserrat font-bold text-gray-dark mb-2">Tableau de bord administrateur</h1>
+                    <p class="text-gray-600">Vue d'ensemble des statistiques et gestion des membres</p>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div id="stats-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-green-light bg-opacity-20 rounded-lg flex items-center justify-center">
+                                <i class="fa-solid fa-users text-green-light text-xl"></i>
+                            </div>
+                            <span class="text-green-light text-sm font-semibold">+5.2%</span>
+                        </div>
+                        <div class="text-2xl font-montserrat font-bold text-gray-dark mb-1">25</div>
+                        <div class="text-gray-600 text-sm">Membres actifs</div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-orange-primary bg-opacity-20 rounded-lg flex items-center justify-center">
+                                <i class="fa-solid fa-euro-sign text-orange-primary text-xl"></i>
+                            </div>
+                            <span class="text-red-500 text-sm font-semibold">3 en attente</span>
+                        </div>
+                        <div class="text-2xl font-montserrat font-bold text-gray-dark mb-1">€1,250</div>
+                        <div class="text-gray-600 text-sm">Cotisations collectées</div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-blue-500 bg-opacity-20 rounded-lg flex items-center justify-center">
+                                <i class="fa-solid fa-calendar-days text-blue-500 text-xl"></i>
+                            </div>
+                            <span class="text-green-light text-sm font-semibold">+12</span>
+                        </div>
+                        <div class="text-2xl font-montserrat font-bold text-gray-dark mb-1">8</div>
+                        <div class="text-gray-600 text-sm">Événements ce mois</div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-yellow-brand bg-opacity-20 rounded-lg flex items-center justify-center">
+                                <i class="fa-solid fa-chart-line text-yellow-brand text-xl"></i>
+                            </div>
+                            <span class="text-green-light text-sm font-semibold">+8.1%</span>
+                        </div>
+                        <div class="text-2xl font-montserrat font-bold text-gray-dark mb-1">87%</div>
+                        <div class="text-gray-600 text-sm">Taux participation</div>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Members Management -->
+                    <div id="members-section" class="lg:col-span-2">
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <div class="flex items-center justify-between mb-6">
+                                <h2 class="text-xl font-montserrat font-bold text-gray-dark">Gestion des membres</h2>
+                                <button class="bg-orange-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+                                    <i class="fa-solid fa-plus mr-2"></i>Ajouter
+                                </button>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="flex space-x-4">
+                                    <div class="flex-1 relative">
+                                        <i class="fa-solid fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                        <input type="text" placeholder="Rechercher un membre..." class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:border-orange-primary focus:outline-none">
+                                    </div>
+                                    <select class="px-4 py-2 border border-gray-200 rounded-lg focus:border-orange-primary focus:outline-none">
+                                        <option>Tous les statuts</option>
+                                        <option>Cotisation OK</option>
+                                        <option>En attente</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead>
+                                        <tr class="border-b border-gray-200">
+                                            <th class="text-left py-3 text-gray-600 font-semibold">Membre</th>
+                                            <th class="text-left py-3 text-gray-600 font-semibold">Email</th>
+                                            <th class="text-left py-3 text-gray-600 font-semibold">Cotisation</th>
+                                            <th class="text-left py-3 text-gray-600 font-semibold">Rôle</th>
+                                            <th class="text-center py-3 text-gray-600 font-semibold">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="space-y-2">
+                                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                            <td class="py-4">
+                                                <div class="flex items-center space-x-3">
+                                                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" class="w-10 h-10 rounded-full" />
+                                                    <div>
+                                                        <div class="font-semibold text-gray-dark">Marie Dupont</div>
+                                                        <div class="text-sm text-gray-500">Membre depuis 2022</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="py-4 text-gray-600">marie.dupont@email.com</td>
+                                            <td class="py-4">
+                                                <span class="bg-green-light bg-opacity-20 text-green-light px-3 py-1 rounded-full text-sm font-semibold">Payée</span>
+                                            </td>
+                                            <td class="py-4">
+                                                <select class="bg-gray-50 border border-gray-200 rounded px-3 py-1 text-sm">
+                                                    <option>Membre</option>
+                                                    <option>Admin</option>
+                                                </select>
+                                            </td>
+                                            <td class="py-4 text-center">
+                                                <button class="text-orange-primary hover:text-orange-600 mx-1">
+                                                    <i class="fa-solid fa-edit"></i>
+                                                </button>
+                                                <button class="text-red-500 hover:text-red-700 mx-1">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                            <td class="py-4">
+                                                <div class="flex items-center space-x-3">
+                                                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" class="w-10 h-10 rounded-full" />
+                                                    <div>
+                                                        <div class="font-semibold text-gray-dark">Pierre Martin</div>
+                                                        <div class="text-sm text-gray-500">Membre depuis 2021</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="py-4 text-gray-600">pierre.martin@email.com</td>
+                                            <td class="py-4">
+                                                <span class="bg-red-500 bg-opacity-20 text-red-500 px-3 py-1 rounded-full text-sm font-semibold">En attente</span>
+                                            </td>
+                                            <td class="py-4">
+                                                <select class="bg-gray-50 border border-gray-200 rounded px-3 py-1 text-sm">
+                                                    <option>Membre</option>
+                                                    <option>Admin</option>
+                                                </select>
+                                            </td>
+                                            <td class="py-4 text-center">
+                                                <button class="text-orange-primary hover:text-orange-600 mx-1">
+                                                    <i class="fa-solid fa-edit"></i>
+                                                </button>
+                                                <button class="text-red-500 hover:text-red-700 mx-1">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                            <td class="py-4">
+                                                <div class="flex items-center space-x-3">
+                                                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" class="w-10 h-10 rounded-full" />
+                                                    <div>
+                                                        <div class="font-semibold text-gray-dark">Sophie Bernard</div>
+                                                        <div class="text-sm text-gray-500">Membre depuis 2023</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="py-4 text-gray-600">sophie.bernard@email.com</td>
+                                            <td class="py-4">
+                                                <span class="bg-green-light bg-opacity-20 text-green-light px-3 py-1 rounded-full text-sm font-semibold">Payée</span>
+                                            </td>
+                                            <td class="py-4">
+                                                <select class="bg-gray-50 border border-gray-200 rounded px-3 py-1 text-sm">
+                                                    <option>Membre</option>
+                                                    <option>Admin</option>
+                                                </select>
+                                            </td>
+                                            <td class="py-4 text-center">
+                                                <button class="text-orange-primary hover:text-orange-600 mx-1">
+                                                    <i class="fa-solid fa-edit"></i>
+                                                </button>
+                                                <button class="text-red-500 hover:text-red-700 mx-1">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cotisations & Charts -->
+                    <div id="cotisations-section" class="space-y-6">
+                        <!-- Cotisations Status -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-lg font-montserrat font-bold text-gray-dark mb-4">État des cotisations</h3>
+                            <div id="cotisations-chart" style="height: 300px;"></div>
+                        </div>
+
+                        <!-- Recent Activities -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-lg font-montserrat font-bold text-gray-dark mb-4">Activités récentes</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-green-light rounded-full"></div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-semibold text-gray-dark">Nouveau membre inscrit</div>
+                                        <div class="text-xs text-gray-500">Sophie Bernard - il y a 2h</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-orange-primary rounded-full"></div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-semibold text-gray-dark">Cotisation reçue</div>
+                                        <div class="text-xs text-gray-500">Marie Dupont - il y a 4h</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-semibold text-gray-dark">Nouvel événement créé</div>
+                                        <div class="text-xs text-gray-500">Match de football - hier</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-yellow-brand rounded-full"></div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-semibold text-gray-dark">Rappel cotisation envoyé</div>
+                                        <div class="text-xs text-gray-500">Pierre Martin - il y a 2 jours</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            try {
+                var data = [{
+                    type: 'pie',
+                    labels: ['Payées', 'En attente', 'En retard'],
+                    values: [22, 3, 2],
+                    marker: {
+                        colors: ['#7FB03E', '#F5A623', '#E84C24']
+                    },
+                    textinfo: 'label+percent',
+                    textposition: 'outside',
+                    hovertemplate: '<b>%{label}</b><br>%{value} membres<br>%{percent}<extra></extra>'
+                }];
+
+                var layout = {
+                    showlegend: false,
+                    margin: { t: 20, r: 20, b: 20, l: 20 },
+                    plot_bgcolor: '#FFFFFF',
+                    paper_bgcolor: '#FFFFFF',
+                    font: { family: 'Open Sans', size: 12 }
+                };
+
+                var config = {
+                    responsive: true,
+                    displayModeBar: false,
+                    displaylogo: false
+                };
+
+                Plotly.newPlot('cotisations-chart', data, layout, config);
+            } catch(e) {
+                document.getElementById('cotisations-chart').innerHTML = '<div class="flex items-center justify-center h-full text-gray-500">Graphique indisponible</div>';
+            }
+        });
+    </script>
+</body>
+</html>
